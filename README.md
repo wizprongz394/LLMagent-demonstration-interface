@@ -38,8 +38,6 @@ AgentDemonstrationInterface/
 │   └── results/               # Generated experiment results (gitignored)
 │
 ├── evaluation/
-│   ├── scorer.py              # Policy-based scoring logic
-│   ├── metrics.py             # Performance metrics
 │   └── reasoning_metrics.py   # Reasoning quality metrics
 │
 ├── runners/
@@ -48,8 +46,6 @@ AgentDemonstrationInterface/
 │
 ├── utils/
 │   ├── intent_classifier.py   # LLM-based intent classification
-│   ├── timers.py              # Timing utilities
-│   └── validators.py          # Safety and schema checks
 │
 └── .gitignore
 ```
