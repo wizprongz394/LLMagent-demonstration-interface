@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 RESULTS_DIR = os.path.join(BASE_DIR, "data", "results")
 
 # --------------------------------------------------
-# Styling
+# Styling (3D / layered)
 # --------------------------------------------------
 st.markdown("""
 <style>
@@ -60,7 +60,7 @@ st.markdown("""
 <h1>🧠 Agent Demonstration Interface</h1>
 <p>
 Explainable evaluation of LLM-driven GIS agents with
-intent inference, performance analysis, and reasoning replay.
+intent inference, reasoning traces, and policy-driven model selection.
 </p>
 </div>
 """, unsafe_allow_html=True)
@@ -102,7 +102,7 @@ df_all = pd.DataFrame(results)
 scores = score_experiment(results)
 
 # --------------------------------------------------
-# Build query map (ID → TEXT)
+# Query map (ID → text)
 # --------------------------------------------------
 query_map = (
     df_all[["query_id", "query_text"]]
@@ -117,13 +117,13 @@ query_map = (
 dynamic_scores = {}
 for model, s in scores.items():
     runs = s["runs"]
-    score = (
+    dynamic_scores[model] = round(
         (s["success"] / runs) * w_success +
         (s["intent_known"] / runs) * w_intent +
         max(0, 1 - s["avg_response_time"] / 120) * w_latency +
-        max(0, 1 - s["avg_iterations"] / 10) * w_eff
+        max(0, 1 - s["avg_iterations"] / 10) * w_eff,
+        3
     )
-    dynamic_scores[model] = round(score, 3)
 
 winner = max(dynamic_scores, key=dynamic_scores.get)
 
@@ -146,20 +146,69 @@ for col, (m, s) in zip(cols, dynamic_scores.items()):
 
 st.success(f"Best model under current policy → **{winner}**")
 
+# ==================================================
+# 📊 DETAILED PERFORMANCE METRICS TABLE
+# ==================================================
+st.markdown("## 📊 Performance Metrics Table")
+
+rows = []
+for model, s in scores.items():
+    runs = s["runs"]
+
+    success_rate = s["success"] / runs
+    intent_rate = s["intent_known"] / runs
+    latency_score = max(0, 1 - s["avg_response_time"] / 120)
+    efficiency_score = max(0, 1 - s["avg_iterations"] / 10)
+
+    rows.append({
+        "Model": model,
+        "Runs": runs,
+        "Success Rate (%)": round(success_rate * 100, 1),
+        "Intent Accuracy (%)": round(intent_rate * 100, 1),
+        "Avg Latency (s)": round(s["avg_response_time"], 2),
+        "Avg Iterations": round(s["avg_iterations"], 2),
+        "Latency Score (norm)": round(latency_score, 3),
+        "Efficiency Score (norm)": round(efficiency_score, 3),
+        "Final Policy Score": dynamic_scores[model]
+    })
+
+perf_df = pd.DataFrame(rows).set_index("Model")
+st.dataframe(perf_df, use_container_width=True)
+
 # --------------------------------------------------
-# Intent distribution
+# Expandable per-model breakdown
+# --------------------------------------------------
+st.markdown("### 🔎 Per-Model Detailed Breakdown")
+
+for model in perf_df.index:
+    with st.expander(f"📌 {model} — Metric Breakdown"):
+        sub = df_all[df_all["model_name"] == model]
+
+        c1, c2, c3 = st.columns(3)
+        c1.metric("Total Runs", len(sub))
+        c2.metric("Failures", int((~sub["success"]).sum()))
+        c3.metric(
+            "Intent Abstentions",
+            int((sub["classified_intent"] == "unknown").sum())
+        )
+
+        st.write("**Intent Distribution**")
+        st.bar_chart(sub["classified_intent"].value_counts())
+
+# --------------------------------------------------
+# Intent distribution (global)
 # --------------------------------------------------
 st.markdown("## 🧭 Intent Distribution by Model")
+
 intent_df = (
     df_all.groupby(["model_name", "classified_intent"])
     .size()
     .unstack(fill_value=0)
 )
-
 st.bar_chart(intent_df)
 
 # --------------------------------------------------
-# Query-level comparison (TEXT, not IDs)
+# Query-level comparison
 # --------------------------------------------------
 st.markdown("## 🔍 Query-Level Comparison")
 
@@ -187,7 +236,7 @@ for col, (_, row) in zip(cols, qdf.iterrows()):
     )
 
 # --------------------------------------------------
-# Trace replay (REAL observations)
+# Trace replay
 # --------------------------------------------------
 st.markdown("## 🧩 Agent Trace Replay")
 
@@ -226,15 +275,15 @@ else:
     st.warning("No trace available.")
 
 # --------------------------------------------------
-# Explanation
+# Decision explanation
 # --------------------------------------------------
 st.markdown("## 🧠 Decision Explanation")
 
 st.info(
     f"""
-    **{winner}** is preferred under the current policy due to its balance of
+    **{winner}** is selected under the current policy due to its balance of
     success ({w_success:.2f}), intent understanding ({w_intent:.2f}),
     latency efficiency ({w_latency:.2f}), and reasoning efficiency ({w_eff:.2f}).
-    Changing these priorities dynamically may alter the optimal model choice.
+    Changing policy weights dynamically may alter the optimal model.
     """
 )
