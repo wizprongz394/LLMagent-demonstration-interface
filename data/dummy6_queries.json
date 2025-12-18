@@ -1,0 +1,26 @@
+[
+  {
+    "id": "q1",
+    "query": "What is the recent weather at 22.5726, 88.3639?"
+  },
+  {
+    "id": "q2",
+    "query": "Analyze road network near 28.6139, 77.2090"
+  },
+  {
+    "id": "q3",
+    "query": "Flood risk around 26.9124, 75.7873"
+  },
+  {
+    "id": "q4",
+    "query": "Is this land suitable for housing at 19.0760, 72.8777?"
+  },
+  {
+    "id": "q5",
+    "query": "Compare weather between 12.9716, 77.5946 and 13.0827, 80.2707"
+  },
+  {
+    "id": "q6",
+    "query": "Land characteristics at 23.1815, 79.9864"
+  }
+]

@@ -1,0 +1,20 @@
+performance:
+  response_time_weight: 0.4
+  iterations_weight: 0.3
+  tool_calls_weight: 0.3
+
+reasoning:
+  numeric_coverage_weight: 0.4
+  reasoning_depth_weight: 0.3
+  consistency_weight: 0.3
+
+gis_compliance:
+  coordinate_accuracy_weight: 0.4
+  fallback_correctness_weight: 0.3
+  rule_violation_penalty: 0.3
+
+thresholds:
+  max_response_time: 10.0        # seconds
+  max_iterations: 15
+  min_numeric_values: 5
+  max_gis_violations: 0

@@ -1,0 +1,434 @@
+[
+  {
+    "model_name": "Gemma-3",
+    "model_id": "gemma3",
+    "query_id": "q1",
+    "query_text": "What is the recent weather at 22.5726, 88.3639?",
+    "classified_intent": "unknown",
+    "response_time_sec": 57.333,
+    "iterations_used": 3,
+    "tool_calls": 1,
+    "tools_used": [
+      "query_geospatial_index"
+    ],
+    "success": true,
+    "error": null,
+    "timestamp": "2025-12-18T09:35:43.083141",
+    "iteration_details": [
+      {
+        "iteration": 1,
+        "intent": "unknown",
+        "action": "query_geospatial_index",
+        "observation": "Dummy GIS data returned"
+      }
+    ]
+  },
+  {
+    "model_name": "Gemma-3",
+    "model_id": "gemma3",
+    "query_id": "q2",
+    "query_text": "Analyze road network near 28.6139, 77.2090",
+    "classified_intent": "unknown",
+    "response_time_sec": 4.496,
+    "iterations_used": 3,
+    "tool_calls": 1,
+    "tools_used": [
+      "query_geospatial_index"
+    ],
+    "success": true,
+    "error": null,
+    "timestamp": "2025-12-18T09:35:47.590242",
+    "iteration_details": [
+      {
+        "iteration": 1,
+        "intent": "unknown",
+        "action": "query_geospatial_index",
+        "observation": "Dummy GIS data returned"
+      }
+    ]
+  },
+  {
+    "model_name": "Gemma-3",
+    "model_id": "gemma3",
+    "query_id": "q3",
+    "query_text": "Flood risk around 26.9124, 75.7873",
+    "classified_intent": "unknown",
+    "response_time_sec": 4.395,
+    "iterations_used": 3,
+    "tool_calls": 1,
+    "tools_used": [
+      "query_geospatial_index"
+    ],
+    "success": true,
+    "error": null,
+    "timestamp": "2025-12-18T09:35:51.989508",
+    "iteration_details": [
+      {
+        "iteration": 1,
+        "intent": "unknown",
+        "action": "query_geospatial_index",
+        "observation": "Dummy GIS data returned"
+      }
+    ]
+  },
+  {
+    "model_name": "Gemma-3",
+    "model_id": "gemma3",
+    "query_id": "q4",
+    "query_text": "Is this land suitable for housing at 19.0760, 72.8777?",
+    "classified_intent": "unknown",
+    "response_time_sec": 4.933,
+    "iterations_used": 3,
+    "tool_calls": 1,
+    "tools_used": [
+      "query_geospatial_index"
+    ],
+    "success": true,
+    "error": null,
+    "timestamp": "2025-12-18T09:35:56.927415",
+    "iteration_details": [
+      {
+        "iteration": 1,
+        "intent": "unknown",
+        "action": "query_geospatial_index",
+        "observation": "Dummy GIS data returned"
+      }
+    ]
+  },
+  {
+    "model_name": "Gemma-3",
+    "model_id": "gemma3",
+    "query_id": "q5",
+    "query_text": "Compare weather between 12.9716, 77.5946 and 13.0827, 80.2707",
+    "classified_intent": "unknown",
+    "response_time_sec": 5.26,
+    "iterations_used": 3,
+    "tool_calls": 1,
+    "tools_used": [
+      "query_geospatial_index"
+    ],
+    "success": true,
+    "error": null,
+    "timestamp": "2025-12-18T09:36:02.190831",
+    "iteration_details": [
+      {
+        "iteration": 1,
+        "intent": "unknown",
+        "action": "query_geospatial_index",
+        "observation": "Dummy GIS data returned"
+      }
+    ]
+  },
+  {
+    "model_name": "Gemma-3",
+    "model_id": "gemma3",
+    "query_id": "q6",
+    "query_text": "Land characteristics at 23.1815, 79.9864",
+    "classified_intent": "unknown",
+    "response_time_sec": 4.689,
+    "iterations_used": 3,
+    "tool_calls": 1,
+    "tools_used": [
+      "query_geospatial_index"
+    ],
+    "success": true,
+    "error": null,
+    "timestamp": "2025-12-18T09:36:06.884229",
+    "iteration_details": [
+      {
+        "iteration": 1,
+        "intent": "unknown",
+        "action": "query_geospatial_index",
+        "observation": "Dummy GIS data returned"
+      }
+    ]
+  },
+  {
+    "model_name": "Mistral",
+    "model_id": "mistral",
+    "query_id": "q1",
+    "query_text": "What is the recent weather at 22.5726, 88.3639?",
+    "classified_intent": "weather",
+    "response_time_sec": 84.708,
+    "iterations_used": 3,
+    "tool_calls": 1,
+    "tools_used": [
+      "query_geospatial_index"
+    ],
+    "success": true,
+    "error": null,
+    "timestamp": "2025-12-18T09:37:31.601736",
+    "iteration_details": [
+      {
+        "iteration": 1,
+        "intent": "weather",
+        "action": "query_geospatial_index",
+        "observation": "Dummy GIS data returned"
+      }
+    ]
+  },
+  {
+    "model_name": "Mistral",
+    "model_id": "mistral",
+    "query_id": "q2",
+    "query_text": "Analyze road network near 28.6139, 77.2090",
+    "classified_intent": "road",
+    "response_time_sec": 7.037,
+    "iterations_used": 3,
+    "tool_calls": 1,
+    "tools_used": [
+      "query_geospatial_index"
+    ],
+    "success": true,
+    "error": null,
+    "timestamp": "2025-12-18T09:37:38.664283",
+    "iteration_details": [
+      {
+        "iteration": 1,
+        "intent": "road",
+        "action": "query_geospatial_index",
+        "observation": "Dummy GIS data returned"
+      }
+    ]
+  },
+  {
+    "model_name": "Mistral",
+    "model_id": "mistral",
+    "query_id": "q3",
+    "query_text": "Flood risk around 26.9124, 75.7873",
+    "classified_intent": "risk",
+    "response_time_sec": 12.077,
+    "iterations_used": 3,
+    "tool_calls": 1,
+    "tools_used": [
+      "query_geospatial_index"
+    ],
+    "success": true,
+    "error": null,
+    "timestamp": "2025-12-18T09:37:50.746517",
+    "iteration_details": [
+      {
+        "iteration": 1,
+        "intent": "risk",
+        "action": "query_geospatial_index",
+        "observation": "Dummy GIS data returned"
+      }
+    ]
+  },
+  {
+    "model_name": "Mistral",
+    "model_id": "mistral",
+    "query_id": "q4",
+    "query_text": "Is this land suitable for housing at 19.0760, 72.8777?",
+    "classified_intent": "risk",
+    "response_time_sec": 8.269,
+    "iterations_used": 3,
+    "tool_calls": 1,
+    "tools_used": [
+      "query_geospatial_index"
+    ],
+    "success": true,
+    "error": null,
+    "timestamp": "2025-12-18T09:37:59.026899",
+    "iteration_details": [
+      {
+        "iteration": 1,
+        "intent": "risk",
+        "action": "query_geospatial_index",
+        "observation": "Dummy GIS data returned"
+      }
+    ]
+  },
+  {
+    "model_name": "Mistral",
+    "model_id": "mistral",
+    "query_id": "q5",
+    "query_text": "Compare weather between 12.9716, 77.5946 and 13.0827, 80.2707",
+    "classified_intent": "comparison",
+    "response_time_sec": 10.06,
+    "iterations_used": 3,
+    "tool_calls": 1,
+    "tools_used": [
+      "query_geospatial_index"
+    ],
+    "success": true,
+    "error": null,
+    "timestamp": "2025-12-18T09:38:09.088116",
+    "iteration_details": [
+      {
+        "iteration": 1,
+        "intent": "comparison",
+        "action": "query_geospatial_index",
+        "observation": "Dummy GIS data returned"
+      }
+    ]
+  },
+  {
+    "model_name": "Mistral",
+    "model_id": "mistral",
+    "query_id": "q6",
+    "query_text": "Land characteristics at 23.1815, 79.9864",
+    "classified_intent": "geospatial",
+    "response_time_sec": 8.686,
+    "iterations_used": 3,
+    "tool_calls": 1,
+    "tools_used": [
+      "query_geospatial_index"
+    ],
+    "success": true,
+    "error": null,
+    "timestamp": "2025-12-18T09:38:17.777072",
+    "iteration_details": [
+      {
+        "iteration": 1,
+        "intent": "geospatial",
+        "action": "query_geospatial_index",
+        "observation": "Dummy GIS data returned"
+      }
+    ]
+  },
+  {
+    "model_name": "LLaMA-3",
+    "model_id": "llama3",
+    "query_id": "q1",
+    "query_text": "What is the recent weather at 22.5726, 88.3639?",
+    "classified_intent": "weather",
+    "response_time_sec": 110.834,
+    "iterations_used": 3,
+    "tool_calls": 1,
+    "tools_used": [
+      "query_geospatial_index"
+    ],
+    "success": true,
+    "error": null,
+    "timestamp": "2025-12-18T09:40:08.637181",
+    "iteration_details": [
+      {
+        "iteration": 1,
+        "intent": "weather",
+        "action": "query_geospatial_index",
+        "observation": "Dummy GIS data returned"
+      }
+    ]
+  },
+  {
+    "model_name": "LLaMA-3",
+    "model_id": "llama3",
+    "query_id": "q2",
+    "query_text": "Analyze road network near 28.6139, 77.2090",
+    "classified_intent": "road",
+    "response_time_sec": 12.67,
+    "iterations_used": 3,
+    "tool_calls": 1,
+    "tools_used": [
+      "query_geospatial_index"
+    ],
+    "success": true,
+    "error": null,
+    "timestamp": "2025-12-18T09:40:21.431999",
+    "iteration_details": [
+      {
+        "iteration": 1,
+        "intent": "road",
+        "action": "query_geospatial_index",
+        "observation": "Dummy GIS data returned"
+      }
+    ]
+  },
+  {
+    "model_name": "LLaMA-3",
+    "model_id": "llama3",
+    "query_id": "q3",
+    "query_text": "Flood risk around 26.9124, 75.7873",
+    "classified_intent": "risk",
+    "response_time_sec": 10.091,
+    "iterations_used": 3,
+    "tool_calls": 1,
+    "tools_used": [
+      "query_geospatial_index"
+    ],
+    "success": true,
+    "error": null,
+    "timestamp": "2025-12-18T09:40:31.541614",
+    "iteration_details": [
+      {
+        "iteration": 1,
+        "intent": "risk",
+        "action": "query_geospatial_index",
+        "observation": "Dummy GIS data returned"
+      }
+    ]
+  },
+  {
+    "model_name": "LLaMA-3",
+    "model_id": "llama3",
+    "query_id": "q4",
+    "query_text": "Is this land suitable for housing at 19.0760, 72.8777?",
+    "classified_intent": "geospatial",
+    "response_time_sec": 16.486,
+    "iterations_used": 3,
+    "tool_calls": 1,
+    "tools_used": [
+      "query_geospatial_index"
+    ],
+    "success": true,
+    "error": null,
+    "timestamp": "2025-12-18T09:40:48.042103",
+    "iteration_details": [
+      {
+        "iteration": 1,
+        "intent": "geospatial",
+        "action": "query_geospatial_index",
+        "observation": "Dummy GIS data returned"
+      }
+    ]
+  },
+  {
+    "model_name": "LLaMA-3",
+    "model_id": "llama3",
+    "query_id": "q5",
+    "query_text": "Compare weather between 12.9716, 77.5946 and 13.0827, 80.2707",
+    "classified_intent": "weather",
+    "response_time_sec": 22.129,
+    "iterations_used": 3,
+    "tool_calls": 1,
+    "tools_used": [
+      "query_geospatial_index"
+    ],
+    "success": true,
+    "error": null,
+    "timestamp": "2025-12-18T09:41:10.187646",
+    "iteration_details": [
+      {
+        "iteration": 1,
+        "intent": "weather",
+        "action": "query_geospatial_index",
+        "observation": "Dummy GIS data returned"
+      }
+    ]
+  },
+  {
+    "model_name": "LLaMA-3",
+    "model_id": "llama3",
+    "query_id": "q6",
+    "query_text": "Land characteristics at 23.1815, 79.9864",
+    "classified_intent": "geospatial",
+    "response_time_sec": 10.874,
+    "iterations_used": 3,
+    "tool_calls": 1,
+    "tools_used": [
+      "query_geospatial_index"
+    ],
+    "success": true,
+    "error": null,
+    "timestamp": "2025-12-18T09:41:21.075694",
+    "iteration_details": [
+      {
+        "iteration": 1,
+        "intent": "geospatial",
+        "action": "query_geospatial_index",
+        "observation": "Dummy GIS data returned"
+      }
+    ]
+  }
+]
